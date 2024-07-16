@@ -1,0 +1,72 @@
+
+
+# Force include .tex files
+!*.tex
+
+
+# LaTeX intermediate and output files
+*.aux
+*.bbl
+*.blg
+*.dvi
+*.fdb_latexmk
+*.fls
+*.ilg
+*.ind
+*.lof
+*.log
+*.lot
+*.out
+*.toc
+*.synctex.gz
+*.synctex(busy)
+
+# Editors specific files
+# *~
+*.swp
+*.swo
+.*.swp
+.*.swo
+*.bak
+*.backup
+*.tmp
+
+# PDF files (uncomment if you don't want to track PDFs)
+#*.pdf
+
+# Directories
+_build/
+_build*/
+output/
+output*/
+
+# Specific files
+*.run.xml
+*.bcf
+*.blg
+*.glo
+*.ist
+*.acn
+*.acr
+*.alg
+*.glg
+*.gls
+*.thm
+*.xdy
+*.tdo
+
+# Generated images and figures
+*.ps
+*.eps
+*.png
+*.jpg
+*.jpeg
+
+# Bibliography files
+*.bbl
+*.blg
+
+# Auto-generated files from arXiv submission
+*.gz
+```
+
