@@ -149,7 +149,7 @@ sorting=ynt
     {\color{teal} \Large{\textbf{Probability \& Statistics}}} \\
    % {\Large{\textbf{Probability Cheatsheet}}} \\
     % comment out line with \color{blue} and uncomment above line for b&w
-   \copyright \ 2024 \  Robins Yadav - magic starts here
+   \copyright \ 2024 \  Robins Yadav 
 \end{center}
 
 
@@ -161,7 +161,7 @@ sorting=ynt
 %%% BEGIN CHEATSHEET
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\href{https://github.com/robinyUArizona}{My github: https://github.com/robinyUArizona}
+% \href{https://github.com/robinyUArizona}{My github: https://github.com/robinyUArizona}
 
 
 
@@ -201,10 +201,10 @@ If all outcomes are equally likely, the probability of an event $A$ happening is
 
 \subsubsection{Permutation \& Combination} {\color{teal}\hrule height 0.5pt} \smallskip
 
-\href{https://www.youtube.com/watch?v=TYs6QQLTWIc&list=PLIYnk9FMYckuWpLCLVAVk50YyhZtaMFYr&index=39}{Video to add}
+% \href{https://www.youtube.com/watch?v=TYs6QQLTWIc&list=PLIYnk9FMYckuWpLCLVAVk50YyhZtaMFYr&index=39}{Video to add}
 
 
-\vspace{-3pt}
+
 $\bullet$ \textbf{Permutation}: A permutation is an arrangement of $r$ objects from a pool of $n$ objects in a \textbf{given order}.
 
 
@@ -317,14 +317,14 @@ $\rightarrow$ Conditional independence does not imply independence, and independ
 \subsubsection{Unions, Intersections, and Complements}{\color{teal}\hrule height 0.5pt} \smallskip
 
 \textbf{De Morgan's Laws}: A useful identity that can make calculating probabilities of unions easier by relating them to intersections, and vice versa. Analogous results hold with more than two sets.
-\vspace{-5pt}
+\vspace{-3pt}
 \begin{align*} 
 \boxed{({A} \cup { B})^c = {A^c} \cap { B^c}} \\
 \boxed{({A} \cap {B})^c = { A^c} \cup { B^c}}
 \end{align*} 
                   
 \textbf{Complements}: The following are true.
-\vspace{-5pt}
+\vspace{-3pt}
 \[\boxed{A \cup A^c = \Omega} \hspace{5pt} \boxed{A \cap A^c = \emptyset} \hspace{5pt} \boxed{P(A) = 1 -  P(A^c)} \]
 
 
@@ -818,21 +818,45 @@ $\rightarrow$ Densities can exceed 1, $\rightarrow$ Densities are \textbf{not} p
 
 
 \subsubsection{Classic Statistical Distribution}{\color{teal}\hrule height 0.5pt} \smallskip
-\vspace{-3pt}
-\textcolor{purple}{Binomial Distribution} (\textbf{Discrete}): Assume $X$ is distributed \(\text{Bin}(n,p) \). $x$ successes in $n$ independent trials or events, each with $p$ probability. Here, each success occurs with the same probability $p$ and each failure occurs with probability $q=1-p$.
-\vspace{-3pt}
-\[\boxed{\text{PDF: } P(X=x) =  \binom{n}{x}  p^x q^{n-x} \quad : x = 0,1,2,\ldots }\]
-\vspace{-5pt}
-\[\boxed{\mu = np} \hspace{10pt} \boxed{\sigma^{2} = npq}\]
-$\rightarrow$ if $n=1$, this is a Bernoulli distribution.
 
-\vspace{3pt}
+$\bullet$ \textcolor{purple}{Binomial Distribution} (\textbf{Discrete}): $x$ successes in $n$ independent trials or events, each with $p$ probability. Here, each success occurs with the same probability $p$ and each failure occurs with probability $1-p$. \textbf{Example}: Used in quality control and polling. Assume $X$ is distributed \(\text{Bin}(n,p) \). 
+\vspace{-3pt}
+\[\boxed{\text{PDF: } P(X=x) =  \binom{n}{x}  p^x (1-p)^{n-x} \quad : x = 0,1,2,\ldots }\]
+\vspace{-5pt}
+\[\boxed{\mu = np} \hspace{10pt} \boxed{\sigma^{2} = np(1-p)}\]
+
+
+\vspace{-4pt}
+\begin{center}
+    \begin{minipage}{0.5\linewidth}
+    \includegraphics[width=\textwidth]{figures/binomial_prob_distribution.jpg}
+    \end{minipage}
+\end{center}
+\vspace{-4pt}
+
 
 \textcolor{purple}{Negative Binomial}:  
 Number of failures before $r$ successes. \\
+
 \vspace{3pt}
-\textcolor{purple}{Geometric}: 
-First success with $p$ probability on the $n^{th}$ trail.
+$\bullet$ \textcolor{purple}{Bernoulli Distribution}:  if $n=1$, this is a Bernoulli distribution. \\
+\textbf{Example}: Binary outcomes like flipping a coin, yes/no surveys
+\[\boxed{\mu = p} \hspace{10pt} \boxed{\sigma^{2} = p(1-p)}\]
+
+\vspace{-4pt}
+\begin{center}
+    \begin{minipage}{0.5\linewidth}
+    \includegraphics[width=\textwidth]{figures/bernouli_prob_distribution.jpg}
+    \end{minipage}
+\end{center}
+\vspace{-4pt}
+
+\vspace{3pt}
+
+
+\vspace{3pt}
+$\bullet$ \textcolor{purple}{Geometric}: 
+$1^{st}$ success with $p$ probability on the $n$ trails. Tracks visits before the first Ad click
 \vspace{-3pt}
 \[\boxed{\text{PDF: } P(X=x) = q^{n-1}p} \hspace{15pt} \boxed{\mu = \frac{1}{p}} \hspace{15pt} \boxed{\sigma^{2} = \frac{1-p}{p^2}} \]
 
@@ -847,12 +871,20 @@ $x$ successes in $n$ draws, no replacement, from a size $N$ population with $X$ 
 
 
 
-\textcolor{purple}{Poisson Distribution} (\textbf{Discrete}): Assume $X$ is distributed \(\text{Pois}(\lambda) \). Number of $x$ successes in a fixed interval of time/space, where these success occur independently and with a known constant or average rate $\lambda$.
+$\bullet$ \textcolor{purple}{Poisson Distribution} (\textbf{Discrete}):  Counts in fixed intervals. \textbf{Example}: No. of calls received per call center. Assume $X$ is distributed \(\text{Pois}(\lambda) \). Number of $x$ successes in a fixed interval of time/space, where these success occur independently and with a known constant or average rate $\lambda$.
+
 \vspace{-3pt}
 \[\boxed{\text{PDF: } P(x) = \frac{e^{-\lambda} \lambda^{x}}{x!}} \hspace{15pt}  \boxed{\mu =   \lambda} \hspace{15pt} \boxed{\sigma^{2} = \lambda }  \]
 
+\vspace{-4pt}
+\begin{center}
+    \begin{minipage}{0.5\linewidth}
+    \includegraphics[width=\textwidth]{figures/poisson_prob_distribution.jpg}
+    \end{minipage}
+\end{center}
+\vspace{-4pt}
 
-\textcolor{purple}{Power Law Distribution} (\textbf{Discrete}):
+$\bullet$ \textcolor{purple}{Power Law Distribution} (\textbf{Discrete}):
 Many data distributions have much longer tails than
 the normal or Poisson distributions. In other words,
 the change in one quantity varies as a power of another
@@ -863,8 +895,25 @@ Rule)
 \[\boxed{\text{PDF: } P(X=x) = cx^{-\alpha}}\]
 where $\alpha$ is the law's exponent and $c$ is the normalizing constant.
 
+
 \vspace{3pt}
-\textcolor{purple}{Normal/Gaussian Distribution} (\textbf{Continuous}): \\
+$\bullet$ \textcolor{purple}{Uniform Distribution} (\textbf{Continuous}):
+All values have equal probabilities. \textbf{Example}:  Used in random number generator
+
+\[\boxed{\text{PDF: } P(x) = \frac{1}{b-a}} \hspace{15pt} \boxed{\mu =\frac{a+b}{2}}  \hspace{15pt}  \boxed{\sigma^{2} = \frac{(b-a)^{2}}{12} } \]
+
+
+\vspace{-4pt}
+\begin{center}
+    \begin{minipage}{0.5\linewidth}
+    \includegraphics[width=\textwidth]{figures/uniform_prob_distribution.jpg}
+    \end{minipage}
+\end{center}
+\vspace{-4pt}
+
+
+\vspace{3pt}
+$\bullet$ \textcolor{purple}{Normal/Gaussian Distribution} (\textbf{Continuous}): \\
 Assume $X$ in distributed $\mathcal{N}(\mu, \sigma^{2})$. It is a bell-shaped and symmetric distribution. Bulk of the values lie close to the mean and no value is too extreme. Generalization of the binomial distribution as $n \rightarrow \infty$.
 \vspace{-3pt}
 \[\boxed{\text{PDF: } P(x) = \frac{1}{\sigma\sqrt{2\pi}} e^-\frac{(x-\mu)^{2}}{2\sigma^{2}}} \hspace{15pt} \boxed{\mu =\mu}  \hspace{15pt}  \boxed{\sigma^{2} =  \sigma^{2}} \]
@@ -874,19 +923,34 @@ Assume $X$ in distributed $\mathcal{N}(\mu, \sigma^{2})$. It is a bell-shaped an
 
 
 $\rightarrow$ Normal Approximation - discrete distributions such as Binomial and Poisson can be approximated using $z$-scores when $np$, $nq$, and $\lambda$ are greater than 10.
-
-\vspace{2pt}
-\textcolor{purple}{Exponential} - memoryless time  between independent event occuring at an average rate $\boxed{\lambda \rightarrow \lambda e^{\lambda x}}$, with $\boxed{\mu = \frac{1}{\lambda}}$
-
-\vspace{2pt}
-
-\textcolor{purple}{Gamma} -  time until $n$ independent events occuring at an average rate $\lambda$.
-
+\vspace{-4pt}
 \begin{center}
-    \begin{minipage}{\linewidth}
-    \includegraphics[width=\textwidth]{figures/Probability_Distribution.PNG}
+    \begin{minipage}{0.5\linewidth}
+    \includegraphics[width=\textwidth]{figures/normal_prob_distribution.jpg}
     \end{minipage}
 \end{center}
+\vspace{-4pt}
+
+
+
+\vspace{2pt}
+$\bullet$ \textcolor{purple}{Exponential} -  Time between events. \textbf{Example}: Explains inactivity time among users. 
+Memoryless time  between independent event occuring at an average rate $\boxed{\lambda \rightarrow \lambda e^{\lambda x}}$, with $\boxed{\mu = \frac{1}{\lambda}}$
+\vspace{-4pt}
+\begin{center}
+    \begin{minipage}{0.5\linewidth}
+    \includegraphics[width=\textwidth]{figures/exponential_prob_distribution.jpg}
+    \end{minipage}
+\end{center}
+\vspace{-4pt}
+
+
+
+
+\vspace{2pt}
+
+$\bullet$ \textcolor{purple}{Gamma} -  Time between K-th success. \textbf{Example}: Explains load on web servers over time. Time until $n$ independent events occuring at an average rate $\lambda$.
+
 
 
 \subsection{Joint PDFs and CDFs} {\color{teal}\hrule height 0.5pt} \smallskip
@@ -949,14 +1013,14 @@ and can be generalized to the continuous case with integrations.
 
 \subsection{Correlation} {\color{teal}\hrule height 0.5pt} \smallskip
 
-\textbf{Variance: } is a numerical value that describes the \textbf{variability} of observations from its arithmetic mean. \\
+$\bullet$ \textbf{Variance: } is a numerical value that describes the \textbf{variability} of observations from its arithmetic mean. \\
 % The \textbf{variabiltiy} is the extent to which data points in a statistical distribution or data set diverge—vary—from the average value, as well as the extent to which these data points differ from each other.\\
 \textcolor{blue}{Note:} The more spread the data, the larger the variance is in relation to the mean.
 \vspace{-5pt}
 \[\boxed{\sigma^{2} = \frac{\sum(x_{i} - \mu)^{2}}{n} = E\left[ \left(X - E[X] \right)^{2} \right]} \]
 
 
-\textbf{Standard deviation: } is a measure of the \textbf{dispersion} of observations within a data set.
+$\bullet$ \textbf{Standard deviation: } is a measure of the \textbf{dispersion} of observations within a data set.
 \vspace{-3pt}
 \[\boxed{\sigma = \sqrt{\text{variance}}} \]
 
@@ -972,7 +1036,7 @@ and can be generalized to the continuous case with integrations.
 \end{enumerate}
 
 
-\textbf{Covariance: } measures the \textbf{direction} of a relationship between two variables.\\
+$\bullet$ \textbf{Covariance: } measures the \textbf{direction} of a relationship between two variables.\\
 Covariance is a quantitative measure of the extent to which the deviation of one variable from its mean matches the deviation of the other from its mean.  \\
 
 Ex.: When two stocks tend to move together, they are seen as having a positive covariance; when they move inversely, the covariance is negative.
@@ -983,7 +1047,7 @@ Special case: \(\boxed{\sigma^{2} = \text{Cov}(X, X)  }\)
 
 \vspace{5pt}
 
-\textbf{Correlation:} measures the \textbf{strength} of the linear relationship between two variables. It is normalized version of covariance.
+$\bullet$ \textbf{Correlation:} measures the \textbf{strength} of the linear relationship between two variables. It is normalized version of covariance.
 \vspace{-3pt}
 \[\boxed{\text{Cor}(X, Y) = \frac{\text{Cov}(X,Y)}{\sigma_{X} \sigma_{Y}}} \]
 
@@ -1282,7 +1346,7 @@ If you have a collection of \textbf{nodes}, pairs of which can be connected by u
 
 
 
-\columnbreak
+\pagebreak
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1295,17 +1359,76 @@ If you have a collection of \textbf{nodes}, pairs of which can be connected by u
 
 Used to describe, organize and summarize information about an entire population i.e. 90\% satisfaction of all customers.
 
-$\bullet$ \textbf{\textcolor{purple}{Where is the variable centered?}} called \textit{\textbf{measure of central of tendency}}. $\rightarrow$ mean, median, mode\\
- 
-$\rightarrow$ Outliers draw the \textbf{mean} towards them! (also effect SD), critical for computation and prediction \\
+$\bullet$ \textbf{\textcolor{purple}{Where is the variable centered?}} called \textit{\textbf{measure of central of tendency}}.\\
 
-$\rightarrow$ \textbf{Median} increases with increase in small values, \textbf{good for heavily skewed data} or large outliers \\
+$\rightarrow$ \textbf{Mean}: Outliers draw the \textbf{mean} towards them! (also effect SD), critical for computation and prediction. For a dataset $x_1, x_2, \dots, x_n$
+\vspace{-3pt}
+\[\boxed{\mu = \frac{1}{n} \sum_{i=1}^{n} x_i}\]
+ \vspace{-3pt}
 
-\vspace{2pt}
-$\bullet$ \textbf{\textcolor{purple}{How spread out the data is?}} called \textit{\textbf{measure of variability}} \\
-$\rightarrow$ \textbf{Variance} (mean square distance from the mean) and SD\\
-$\rightarrow$ \textbf{Inter-quartile range: } width of "middle 50\%" \\
 
+$\rightarrow$ \textbf{Median}: increases with increase in small values, \textbf{good for heavily skewed data} or large outliers
+\vspace{-3pt}
+\[
+\boxed{\text{Median} = 
+\begin{cases} 
+x_{\frac{n+1}{2}} & \text{if } n \text{ is odd} \\
+\frac{x_{\frac{n}{2}} + X_{\frac{n}{2} + 1}}{2} & \text{if } n \text{ is even}
+\end{cases}}
+\]
+\vspace{-3pt}
+
+$\rightarrow$ \(\text{\textbf{Mode}} = \text{value that appears most frequently}\)
+
+\vspace{5pt}
+$\bullet$ \textbf{\textcolor{purple}{How spread out the data is?}} called \textit{\textbf{measure of variability}} 
+
+
+$\rightarrow$ \textbf{Variance}: measures how far the values in a dataset spread out from the mean (average).
+\vspace{-3pt}
+\[
+\boxed{
+\sigma^2 = \frac{1}{n} \sum_{i=1}^{n} (x_i - \mu)^2
+}
+\]
+
+$\rightarrow$ \textbf{Standard Deviation}: Variance gives extra weight to outliers due to Squared values, an interpretable measure of spread because it is expressed in the same units as the data.
+\vspace{-3pt}
+\[
+\boxed{
+\sigma = \sqrt{\sigma^2}
+}
+\]
+
+$\rightarrow$ \textbf{Coefficient of Variation (CV)}: measures the relative variability of a dataset by comparing the standard deviation to the mean.
+\vspace{-3pt}
+\[\boxed{\text{CV} = \frac{\sigma}{\mu} \times 100\%}\]
+
+
+$\rightarrow$ \textbf{Covariance}: measure of the degree to which two random variables change together. It indicates the \textbf{direction} of the linear relationship between the variables.
+\vspace{-3pt}
+\[\boxed{\text{Cov}(X, Y) = \frac{1}{n} \sum_{i=1}^{n} (x_i - \mu_X)(y_i - \mu_Y)}\]
+\hspace{10pt}-  A positive covariance indicates that as one variable increases, the other also tends to increase. \\
+\hspace{10pt}- A negative covariance indicates that the other tends to decrease as one variable increases. \\
+\hspace{10pt}- A covariance close to zero suggests that the variables do not have a linear relationship.
+
+$\rightarrow$ \textbf{Correlation Coefficients}: measures the \textbf{strength} and \textbf{direction} of a linear relationship between two variables. The formula for Pearson's correlation coefficient is:
+\vspace{-3pt}
+\[
+\boxed{r = \frac{\sum (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum (x_i - \bar{x})^2 \sum (y_i - \bar{y})^2}}}
+\]
+
+The value of $r$ ranges from $-1$ to $1$: \\
+\hspace{10pt}- $r = 1$: Perfect positive correlation.  \\
+\hspace{10pt}- $r = -1$: Perfect negative correlation. \\
+\hspace{10pt}- $r = 0$: No correlation.
+
+
+$\rightarrow$ \textbf{Inter-quartile range: } width of "middle 50\%".
+\(\text{IQR} = Q3 - Q1\)
+
+\(\text{lower bound} = Q1 - 1.5 * \text{IQR}, \hspace{5pt}
+\text{upper bound} = Q3 + 1.5 * \text{IQR}\)
 
 
 
@@ -1359,16 +1482,16 @@ $\rightarrow$ \textbf{Qualitative} $\rightarrow$ Categorical (Descriptive)
 \vspace{5pt}
 
 \subsubsection{Presentation} {\color{teal}\hrule height 0.5pt} \smallskip
-$\bullet$ The goal of data presentation to communicate what we learned from the data, the evidence for our conclusions, our goals and/or questions for the analysis\\
+$\bullet$ The goal of data presentation to communicate what we learned from the data, the evidence for our conclusions\\
 
 \vspace{2pt}
 
 
-$\rightarrow$ Three primary ways to compare statistics: \textbf{absolute}, \textbf{relative}, and \textbf{ratio} \\
+$\rightarrow$ 3 primary ways to compare statistics: \textbf{absolute}, \textbf{relative}, and \textbf{ratio} \\
 \vspace{2pt}
 
 $\bullet$ \textbf{Bar chart: } Emphasize \textit{relative difference}. A bar chart is used for \textbf{categorical} data, where each bar represents a distinct category with variable heights indicating values like counts or percentages. It has a \textbf{categorical x-axis} and a \textbf{numerical y-axis}, showing comparisons between different categories (e.g., sales figures for different products).
-\vspace{2pt}
+% \vspace{1.8pt}
 
 
 $\bullet$ \textbf{Histogram: } It displays the distribution of \textbf{numerical} data across bins or intervals. Bars are contiguous and represent the frequency or count of data points within each bin on the x-axis. It has numerical axes (x for bins, \textbf{y for frequencies}), helping visualize data distributions (e.g., exam scores distribution).
@@ -1401,7 +1524,7 @@ $\bullet$ \textbf{Swarm plot: } categorical scatter plot \\
 
 \subsection{Inferential Statistics} {\color{teal}\hrule height 0.5pt} \smallskip
 
-Used to generalize about a population \textbf{based on a sample of data} i.e. 90\% satisfaction of a sample of 50 customer $\rightarrow$ 90\% satisfaction of all customers. 
+Used to generalize about a population \textbf{based on a sample of data} i.e. 90\% satisfaction from a sample of 50 customer $\rightarrow$ 90\% satisfaction from all customers. 
 \vspace{2pt}
 
 \textbf{Inference} is learning about data \\
@@ -1411,64 +1534,138 @@ $\rightarrow$ \textbf{Testing} the data's support for an hypothesis. \\
 
 $\rightarrow$ \textbf{Ex:}  Mean of 500 penguins is \textbf{estimate } (is an estimated value often has a \textbf{CI} or similar), mean as the concept is the \textbf{estimator}, and the parameter is \textbf{estimand} \\
 
+\vspace{2pt}
 $\bullet$ \textbf{Sampling Distribution}: refers to the distribution of a \textbf{sample} statistic (such as the sample mean or sample proportion) obtained from \textbf{multiple samples of the same size} from a population. \\
-$\rightarrow$ The sampling distribution of the sample mean tends to \textbf{Normal} as the sample size increases, regardless of the population distribution, this is \textbf{Central limit theorem} \\ $$\boxed{\left( \mu, \frac{\sigma}{\sqrt{n}}\right)}$$
+
+\vspace{2pt}
+$\bullet$ \textbf{Bootstrap}: A technique for \textbf{estimating sampling distributions} by repeatedly resampling the available (existing) sample \textbf{with replacement}.
 
 
-$\rightarrow$ The CLT is \textbf{important} because it allows us to use this bell curve to understand and make predictions about groups of data, even when we don't know the exact details of each individual measurement.
+\vspace{2pt}
+$\bullet$ \textbf{Central Limit Theorem} (CLT) states that the sampling distribution of the sample mean approaches a \textbf{normal distribution} as sample size increases, regardless of the population \textbf{distribution} (i.e. uniform, exponential etc), given that the sample consists of independent and identically distributed i.e. i.i.d random variables with \textbf{finite} mean and variance.
+\vspace{-4pt}
+\[\boxed{Z_n = \frac{\bar{X}_n - \mu}{\frac{\sigma}{\sqrt{n}}} \xrightarrow{d} N(0, 1)
+}\]
+\vspace{-4pt}
+
+The standardized sample mean $Z_{n}$ converges to a standard normal distribution $N(0,1)$ as the sample size 
+$n$ increases.
+
+$\rightarrow$ When we perform experiments or collect data, we often don't know the underlying distribution of the population (it could be \textbf{skewed}, \textbf{uniform}, or anything else). This is where the \textbf{Central Limit Theorem} (CLT) becomes crucial.
 
 
 $\bullet$ \textbf{Sample statistic}: 
 A metric calculated for a sample of data drawn from a large population.
 
-$\bullet$ \textbf{Standard error} The standard error is a single metric that sums up the variability (SD) in the sampling distribution for a statistic. \( \text{SE} = \frac{s}{\sqrt{n}}\)
+$\bullet$ \textbf{Standard error} Measures the accuracy of the estimate \( \text{SE} = \frac{s}{\sqrt{n}}\)
 
-
-
-
-$\bullet$ \textbf{Bootstrap}: A technique for \textbf{estimating sampling distributions} by repeatedly resampling the available (existing) sample \textbf{with replacement}.
-
-
+\vspace{3pt}
 $\rightarrow$ \textcolor{purple}{\textbf{QQ-Plot}}: A plot to visualize how close a sample distribution is to a specified distribution, e.g., the normal distribution
 
 
+% \vspace{2pt}
+
+\subsubsection{Normal Distribution} {\color{teal}\hrule height 0.5pt} \smallskip
+
+We can compute the Z Score and use the Normal Distribution to calculate probabilities
+
+
+\vspace{2pt}
+$\bullet$ \textbf{Z-score}: gives the value in standard deviation ($\sigma$) for the Percentile we want. For example, if we want 95\% of the data, it tell us how many standard deviations are required. 
+\vspace{-4pt}
+\[\boxed{
+Z = \frac{x - \mu}{\sigma}
+}\]
+\vspace{-4pt}
+
+$\bullet$ \textbf{Z Table}: Area in Blue is $0.9803$ of the area
+\vspace{-4pt}
+\begin{center}
+    \begin{minipage}{0.46\linewidth}
+    \includegraphics[width=\textwidth]{figures/z_normal_distribution.jpg}
+    \end{minipage}
+\end{center}
+\vspace{-4pt}
+\vspace{-4pt}
+\[\boxed{
+Z = \frac{48 - 40.8}{3.5} = \frac{7.2}{3.5} = 2.06
+}\]
+
+
+$\rightarrow$ \textbf{z-score will tell you how many standard errors there are between the sample mean and the population mean.} 
 
 
 
+
+
+$\rightarrow$  z-score of zero tells you the values is exactly average while a score of +3 tells you that the value is much higher than average. \\
+\vspace{3pt}
 
 
 \subsubsection{Hypothesis Testing} {\color{teal}\hrule height 0.5pt} \smallskip
 
-Hypothesis Test (or significance test) is used to assess \& understand the plausibility (reasonable), or likelihood of some assumed viewpoint (a hypothesis) - based upon data. \\
+$\rightarrow$ \textbf{Hypothesis}: An educated guess you can test, or likelihood of some assumed viewpoint - based upon data. 
 
-\textbf{Example}: Let's say we're the coach of an NBA Basketball team - we might find ourselves with the below dilemma...\\
-The New Sensation $\gg$ Games Played: 2 $\rightarrow$ Shooting Rate: 60\% \\
-The Current Star $\gg$ Games Played: 102 $\rightarrow$ Shooting Rate: 49\% \\
-Here, My new player seems to be a better shooter...but the player only played 2 games. I need more confidence
-before making a big change! Coach Let's test it! \\
+$\rightarrow$ \textbf{Statement}: Restaurants in Los Angeles are Expensive
 
+$\rightarrow$ \textbf{Hypothesis}: Restaurants in Los Angeles are Expensive vs. Pittsburgh
 
-\begin{center}
-    \begin{minipage}{0.9\linewidth}
-    \includegraphics[width=\textwidth]{figures/Hypothesis_Testing_Steps.PNG}
-    \end{minipage}
-\end{center}
+$\bullet$ \textbf{Null Hypothesis}: The Hypothesis you will Test 
+\[10 < \text{Avg. Restaurant Prices} < 25\]
+
+$\bullet$ \textbf{Alternative Hypothesis}: All other Possibilities 
+\[\text{Avg. Restaurant Prices} < 10 \hspace{5pt} \text{OR} \hspace{5pt} \text{Avg. Restaurant Prices} > 25 \]
 
 
-
-
-
-\textbf{Example:} Since the null hypothesis typically represents a baseline (e.g., the marketing campaign did not increase conversion rates, etc), the goal is to reject the null hypothesis with statistical significance and hope that there is significant outcome.
-
-
+$\bullet$ \textbf{Significance Level} ($\alpha$): the probability of rejecting the Null Hypothesis ($H_{0}$) when it is actually true 
 \vspace{2pt}
 
+$\bullet$ Common $\alpha$: 0.01, 0.05, 0.
+\vspace{2pt}
 
-$\bullet$ In hypothesis testing, the probability that the null hypothesis ($H_{0}$) would produce a value as large as the observed value; if the observed statistic is $x$, and $X$ is a random variable representing the sampling and analysis process, this is $\boxed{P[X>x \, | H_{0} \; \text{is true}]}$.  The  \textbf{p-value} is the probability of seeing an effect as large as the one observed if there is no true effect to observe.  \\
+$\bullet$ \textbf{Confidence Intervals}: Point Estimates are Inaccurate so alternative is Intervals. Suppose we have 3 sample means
+\vspace{-4pt}
+\[\boxed{\mu_{\bar{x}} = 5.4, \mu_{\bar{x}} = 6.2, \mu_{\bar{x}} = 6.8 \rightarrow \text{Interval}: (5,7)} \]
+$\rightarrow$ Normal Confidence: 90\%, 95\%, 99\%
+
+$\rightarrow$ 90\% Confidence: 9/10 of Intervals contain Mean
+ 
+$\rightarrow$ Alpha ($\alpha$): Doubt $\rightarrow$ 1- Confidence
+\vspace{-3pt}
+\[\boxed{ (x,y) =  \bar{x} \, \pm \hspace{2pt} Z_{\frac{\alpha}{2}} \boldsymbol{\cdot} \frac{s}{\sqrt{n}}} \]
+
+\textbf{Example}: Calculate the probable salary we would receive if we became a player for the Houston Rockets with confidence of 95\%. Given $\mu_{\bar{x}} = 8978814.2$, \textbf{confidence} = 0.95, \textbf{significance level} $\alpha$ = 0.05, \textbf{critical probability} = \(1-\frac{\alpha}{2} = 0.975\). \\
+Step 1: Look into the \href{https://z-table.com/}{Z Table} with value 0.975, will give \(Z_{\frac{\alpha}{2}}\) of 1.96\\
+Step 2: Find standard deviation $\sigma$ is 12471425.74 \\
+Step 3: \((x,y) =  8978814.2 \pm 1.96  \boldsymbol{\cdot} \frac{12471425.74}{\sqrt{15}} = (2667401.97, 15290226.43)\)
+
+
+\vspace{-4pt}
+\begin{center}
+    \begin{minipage}{0.66\linewidth}
+    \includegraphics[width=\textwidth]{figures/confidence_interval_95.jpg}
+    \end{minipage}
+\end{center}
+\vspace{-4pt}
+
+
+\(\boxed{95 \% : \bar{x} \, \pm 1.96 \boldsymbol{\cdot} \hspace{3pt}\frac{s}{\sqrt{n}}} \) 
+
+
+
+% computed by taking a sample (n) and computing a statistic from that sample,  when repeated many times, will \textbf{return an interval} containing the true parameter value (mean) 95\% of the time. \\
+% \textbf{Note:} If the confidence intervals \textbf{do not overlap} $\rightarrow$ This is evidence to reject null hypothesis, i.e. different \\
+
+
+\vspace{3pt}
 
 
 \vspace{3pt}
 \textcolor{purple}{\textbf{\textbf{$p$-value and Confidence Intervals}}} \\
+
+$\bullet$ \textbf{p-value} is the smallest level of significance at which we Reject the Hypothesis. \\
+
+
 $\bullet$ \textbf{p-value} is the probability of observing the value of the calculated test statistic under the null hypothesis assumptions. \\
 
 $\bullet$ \textcolor{red}{A p-value is not a probability of an event occurring}, it is a
@@ -1484,38 +1681,263 @@ that they are different) \\
 $\rightarrow$ \textbf{laymen term p-value}: If I’m living in a world where the pizza delivery time is 30 minutes or less (null hypothesis is true), how surprising is my evidence in real life? P-value answers this question with a number — probability.
 
 
+
+
+
+% \vspace{2pt}
+% $\bullet$ \textbf{Bootstrapping the p-value}: Compute statistics \textbf{$t$} (observed diff.), $t^{*}$ from each bootstrap sample (diff.) $\rightarrow$ $\boxed{p = P(|t^{*}| \geq |t|)}$  \\ $\rightarrow$ If $p < 0.05$ then reject $H_{0}$, which means there is significantly difference.\\
+
+
+
+
+
+
+
+
+
+
+% \subsubsection{Test Statistics} {\color{teal}\hrule height 0.5pt} \smallskip
+
+
+\vspace{3pt}
+\subsubsection{Z-Test} {\color{teal}\hrule height 0.5pt} \smallskip
+Z-Test is used when the population \textbf{variance} (or standard deviation $\sigma$) is \textbf{known}, and when the \textbf{sample size} $n$ is \textbf{large} $n \geq 30$ (to invoke the CLT) and \\
+
+\vspace{3pt}
+
+$\bullet$ \textbf{One-Sample} z-Test: compare a \textbf{sample mean} $\bar{x}$ with the  known \textbf{population mean} $\mu$
+\vspace{-2pt}
+\begin{enumerate}
+    \item \(H_{0}: \mu = \text{avg. value}\), \quad \(H_{1}: \mu < \text{avg. value}\)
+    \vspace{-2pt}
+    \item \textbf{Collect Data}: \(\bar{x}, \mu, \sigma, n > 30 \)
+    \vspace{-2pt}
+    \item Compute \textbf{Z-Score}: \boxed{z = \frac{\bar{x} - \mu}{\frac{\sigma}{\sqrt{n}}} }
+    \vspace{-2pt}
+    \item For a 95\% \textbf{confidence} level (one-tailed test), \textbf{significance level} $\alpha$ = 0.05, \textbf{critical probability} = \(1-\alpha = 0.95\), the critical value (from z-table) is -1.645. 
+    \vspace{-2pt}
+    \item \textbf{Decision Rule}: if Z-score $<$ -1.645, reject Null Hypothesis $H_{0}$
+    \vspace{-2pt}
+
+    \item Using \textbf{p-value} method: Use \textbf{Z-Score} $\pm$ (test statistic), and Look into z-table. Let say \textbf{Z-Score} is -2.53, then the row with 2.5 and column with 0.03, the area value is 0.0057.
+    For the area only in left side $\alpha$ is 0.0057 Since, it's 1-sided test so the p-value is 0.0057. \\
+    \(\text{p-value} < \alpha \quad \rightarrow \quad 0.0057 < 0.05\), thus \textbf{reject} Null Hypothesis $H_{0}$
+\end{enumerate}
+\vspace{-4pt}
 \begin{center}
-    \begin{minipage}{\linewidth}
-    \includegraphics[width=\textwidth]{figures/p_value_and_critical_value.PNG}
+    \begin{minipage}{0.5\linewidth}
+    \includegraphics[width=\textwidth]{figures/one_sided_hypothesis_testing_bell_graph.jpg}
     \end{minipage}
 \end{center}
+\vspace{-4pt}
 
 
-\vspace{2pt}
-$\bullet$ \textbf{Bootstrapping the p-value}: Compute statistics \textbf{$t$} (observed diff.), $t^{*}$ from each bootstrap sample (diff.) $\rightarrow$ $\boxed{p = P(|t^{*}| \geq |t|)}$  \\ $\rightarrow$ If $p < 0.05$ then reject $H_{0}$, which means there is significantly difference.\\
 
 
-\vspace{2pt}
-$\bullet$ \textbf{\textcolor{blue}{Pitfalls} to p-values:} \\
-Multiple comparisons, Designed for prospective experiemnts, Full validity requires planning before looking at data, Null hypothesis usually not precisely true.
 
-\vspace{2pt}
-$\bullet$ \textbf{Confidence interval} (CI) $\boxed{95 \% : \bar{x} \, \pm 1.96 \, (\frac{s}{\sqrt{n}})} $ computed by taking a sample (n) and computing a statistic from that sample,  when repeated many times, will \textbf{return an interval} containing the true parameter value (mean) 95\% of the time. \\
-\textbf{Note:} If the confidence intervals \textbf{do not overlap} $\rightarrow$ This is evidence to reject null hypothesis, i.e. different \\
+$\bullet$ \textbf{Two-Sample} z-Test: compare the \textbf{mean} of \textbf{two independent samples}
+\vspace{-2pt}
+\begin{enumerate}
+    \item \(H_{0}: \mu_{A} = \mu_{B}\), \quad \(H_{1}: \mu_{A} \neq \mu_{B}\)
+    \vspace{-2pt}
+    \item \textbf{Collect Data}: \(\bar{x}_{A}, \bar{x}_{B}, \sigma_{A}, \sigma_{B}, n_{A} > 30, n_{B} > 30, \)
+    \vspace{-2pt}
+    \item Compute \textbf{Z-Score}: \boxed{z = \frac{\left(\bar{x}_{A} - \bar{x}_{B} \right)}{\sqrt{\frac{\sigma^{2}_{A}}{n_{A}} + \frac{\sigma^{2}_{B}}{n_{B}}}}}
+    \vspace{-2pt}
+    \item For a 95\% \textbf{confidence} level (two-tailed test), \textbf{significance level} $\alpha$ = 0.05, \textbf{critical probability} = \(1- \frac{\alpha}{2} = 0.975\), the critical value (from z-table) is $\pm$1.96. 
+    \vspace{-2pt}
+    \item \textbf{Decision Rule}: if Z-score:  $Z >$ 1.96 or $Z <$ -1.96, reject Null Hypothesis $H_{0}$, thus there is significance difference
+    \vspace{-2pt}
+
+    \item Using \textbf{p-value} method: Use \textbf{Z-Score} $\pm$ (test statistic), and Look into z-table. Let say \textbf{Z-Score} is 2.31, then the row with 2.3 and column with 0.01, the area value is 0.98956.
+    For the area in right side $\frac{alpha}{2}$ is 1-0.98956 = 0.01044. Since, it's 2-sided test so the p-value 2 times 0.01044 is 0.02088. \(\text{p-value} < \alpha \quad \rightarrow \quad 0.02088 < 0.05\), thus \textbf{reject} Null Hypothesis $H_{0}$
+\end{enumerate}
+\vspace{-4pt}
+\begin{center}
+    \begin{minipage}{0.5\linewidth}
+    \includegraphics[width=\textwidth]{figures/hypothesis_testing_bell_graph.jpg}
+    \end{minipage}
+\end{center}
+\vspace{-4pt}
+
+
+
+
+$\bullet$ \textbf{Z-test for Proportions} z-Test: compare proportions between two groups
+
+
+
+
+\vspace{5pt}
+
+\subsubsection{Student's t-Distribution} {\color{teal}\hrule height 0.5pt} \smallskip
+
+The \textit{t-distribution} is a normally shaped distribution, except that it is a bit thicker and longer on the tails. \\
+
+
+
+\vspace{-4pt}
+\begin{center}
+    \begin{minipage}{0.7\linewidth}
+    \includegraphics[width=\textwidth]{figures/normal_vs_student_t_distributution.jpg}
+    \end{minipage}
+\end{center}
+\vspace{-4pt}
+
+\vspace{-3pt}
+\[\boxed{ t =  \bar{x} \, \pm \hspace{2pt} t_{\frac{\alpha}{2}} \boldsymbol{\cdot} \frac{s}{\sqrt{n-1}}} \]
+
+\textbf{Example}: Let's say a manufacturer is promising brake pads will last for 65,000 km with a .95 confidence level. Our sample mean ($\bar{x}$) is 62,456.2, sample standard deviation ($S$) is 2418.4, Degrees of Freedom ($n-1$) is 29, $\alpha$ is 1-0.95 = 0.05, critical probability = \(1-\frac{\alpha}{2} = 0.975\). The $T$-value is found to be 2.045 by looking into the  \href{https://www.tdistributiontable.com/}{$T$-table} from row no. 29$^{th}$ and column no. $\alpha /2$ with 0.025.
+Now, 
+\vspace{-3pt}
+\[\boxed{ \text{Interval} =  62456.2 \pm 2.045 \boldsymbol{\cdot} \frac{2418.4}{\sqrt{29}}  = (61537.82, 63374.58)} \]
+
+
 
 
 
 \vspace{3pt}
-$\rightarrow$ Hypothesis tests are either one- or two-tailed tests. \\
-$\bullet$ \textbf{One-tailed} test: \\
-\(\boxed{H_{0}: \mu = \mu_{0}} \hspace{5pt}\text{versus} \hspace{5pt} \boxed{H_{1}: \mu < \mu_{0} \hspace{5pt} \text{or} \hspace{5pt} H_{1}: \mu > \mu_{0}} \) \\
-$\bullet$ \textbf{Two-tailed} test: \\
-\(\boxed{H_{0}: \mu = \mu_{0}} \hspace{5pt}\text{versus} \hspace{5pt} \boxed{H_{1}: \mu \neq \mu_{0}}  \) \\
-where $H_{0}$ is the null hypothesis and $H_{1}$ is the alternative hypothesis, and $\mu$ is the parameter of interest. \\
+
+
+
+\subsubsection{T-Test} {\color{teal}\hrule height 0.5pt} \smallskip
+T-test is used when the population \textbf{variance} (or standard deviation) is \textbf{unknown} \textbf{or} when the \textbf{sample size} $n$ is \textbf{small} $n<30$ and  It uses sample variance $s^{2}$ in place of population variance $\sigma^{2}$.
+
+\vspace{3pt}
+
+$\bullet$ \textbf{One-Sample} T-Test: compare a \textbf{sample mean} $\bar{x}$ with the  known value or \textbf{population mean} $\mu$, Degree of freedom: $n-1$ \\
+\(H_{0}: \mu = \text{avg. value}\), \quad \(H_{1}: \mu < \text{avg. value}\)
+
+ \vspace{-3pt}
+\[\boxed{t = \frac{\bar{x} - \mu_{0}}{\frac{s}{\sqrt{n}}}  \sim t_{n-1}}\]
+
+ 
+ 
+$\bullet$ \textbf{Independent Two-sample} t-test: compares the means of \textbf{two independent samples},  Degree of freedom: $n_{A} + n_{B} -  2$ \\
+\(H_{0}: \mu_{A} = \mu_{B}\), \quad \(H_{1}: \mu_{A} \neq \mu_{B}\)
+ \vspace{-3pt}
+\[\boxed{t = \frac{\left(\bar{x}_{A} - \bar{x}_{B} \right)}{\sqrt{\frac{s^{2}_{A}}{n_{A}} + \frac{s^{2}_{B}}{n_{B}}}}} \]
+
+$\bullet$ \textbf{Paired} or \textbf{Dependent} \textit{t-test}:  Compares the means of two related groups (e.g., measurements before and after a treatment).
+
+\vspace{-2pt}
+\begin{enumerate}
+    \item \(H_{0}: \mu_{A1} - \mu_{A2} = 0\), \quad \(H_{1}: \mu_{A1} - \mu_{A2} \neq 0\)
+    \vspace{-2pt}
+    \item \textbf{Collect Data}: Before ($A1$) - \([130, 132, 129, 138, 131]\) \(\), After ($A2$) - \([125, 128, 126, 127, 130]\)
+    \vspace{-2pt}
+    \item \(d_{i} = \text{After}_{i} - \text{Before}_{i}\)
+    \vspace{-2pt}
+    \item Compute \textbf{t-statistic}: \boxed{t = \frac{\bar{d} }{\frac{\sigma_{d}}{\sqrt{n}}} }
+    \vspace{-2pt}
+\end{enumerate}
+
+
 
 
 
 \vspace{3pt}
+\subsubsection{Ch-Square Distribution}{\color{teal}\hrule height 0.5pt} \smallskip
+
+measure differences between categorical variables, using $\boxed{\chi^2$ = $\sum \frac{\text{observed} - \text{expected}}{\text{expected}}}$ to test:
+\begin{itemize}[label={--},leftmargin=4mm]
+    \itemsep -.4mm
+    \item Goodness of fit - if samples of one categorical variable match the population category expectations
+    \item Independence -  if being in one category is independent of another, based off two categories
+    \item Homogeneity - if different subgroups come from the same population, based off a single category
+\end{itemize}
+
+\vspace{3pt}
+\subsubsection{ANOVA} {\color{teal}\hrule height 0.5pt} \smallskip
+
+ANOVA (Analysis of Variance) is a statistical method used to determine if there are any statistically significant differences between the means of three or more independent groups.
+
+\begin{enumerate}
+\vspace{-2pt}
+    \item State the Hypotheses
+    \vspace{-2pt}
+    \begin{align*}
+    H_0 &: \text{All group means are equal} \\
+    H_1 &: \text{At least one group mean is different}
+    \end{align*}
+    \vspace{-2pt}
+
+    \item Collect and Prepare Data: \textbf{Example:} Consider a study evaluating the effectiveness of three different diets on weight loss.
+    \vspace{-2pt}
+    \begin{align*}
+    \text{Diet A} &: [5, 6, 7, 8, 5] \\
+    \text{Diet B} &: [6, 9, 8, 7, 6] \\
+    \text{Diet C} &: [4, 5, 5, 3, 6]
+    \end{align*}
+    \vspace{-2pt}
+
+    
+    \item Choose the Significance Level ($\alpha$): Common choices are $0.05$ or $0.01$.
+    \vspace{-2pt}
+
+    \item \(\text{Sum of Squares Between (SSB)} = \sum_{i=1}^{k} n_i (\bar{X_i} - \bar{X})^2\), \quad
+    \(\text{Sum of Squares Within (SSW)} = \sum_{i=1}^{k} \sum_{j=1}^{n_i} (X_{ij} - \bar{X_i})^2 \)
+
+$k$: No. of groups \\
+$n_{i}$: No. of observations in group $i$ \\
+$\bar{X}_{i}$: Mean of group $i$ \\
+$\bar{X}$: Overall mean (mean of all groups combined). \\
+$X_{ij}$: Individual observation in group $i$
+
+
+
+    \vspace{-2pt}
+    \item  Calculate the ANOVA: Calculate the group means and the overall mean.
+    \vspace{-2pt}
+    \begin{align*}
+    F &= \frac{\text{SSB} / (k - 1)}{\text{SSW} / (N - k)}
+    \end{align*}
+    \vspace{-2pt}
+
+    Where:
+    \vspace{-2pt}
+    \begin{align*}
+        k & = \text{number of groups} \\
+        N & = \text{total number of observations}
+    \end{align*}
+    \vspace{-2pt}
+
+
+    \item  Determine the Critical Value: 
+Use an F-distribution table to find the critical F-value based on $\alpha$, $k - 1$ (degrees of freedom between groups), and $N - k$ (degrees of freedom within groups).
+\vspace{-2pt}
+
+
+    \item Compare F-Statistic to Critical Value:
+If $F_{\text{calculated}} > F_{\text{critical}}$, reject the null hypothesis $H_0$.
+\vspace{-2pt}
+
+    \item If you reject $H_0$, conclude that there is a significant difference between the group means. If you fail to reject $H_0$, conclude that there is no significant difference.
+    \vspace{-2pt}
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+
+
+
+
+% $\bullet$ In hypothesis testing, the probability that the null hypothesis ($H_{0}$) would produce a value as large as the observed value; if the observed statistic is $x$, and $X$ is a random variable representing the sampling and analysis process, this is $\boxed{P[X>x \, | H_{0} \; \text{is true}]}$.  The  \textbf{p-value} is the probability of seeing an effect as large as the one observed if there is no true effect to observe.  \\
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1523,10 +1945,60 @@ where $H_{0}$ is the null hypothesis and $H_{1}$ is the alternative hypothesis, 
 \textcolor{blue}{Note:} Understanding the hypothesis testing is the basis of A/B testing.
 
 \subsubsection{A/B Testing} {\color{teal}\hrule height 0.5pt} \smallskip
-$\rightarrow$ An A/B test is an experiment with two groups to establish which of two treatments, products, procedures, or the like is superior. Two groups:\\
-$\rightarrow$ \textbf{Treatment group}: A group of subjects exposed to a specific treatment. \\
-$\rightarrow$ \textbf{Control group}: A group of subjects exposed to no (or standard) treatment.\\
-\textbf{Ex}: Testing two therapies to determine which suppresses cancer more effectively \\
+$\rightarrow$ An A/B test is an experiment involving two groups to determine which of two treatments, products, or procedures performs better or yields superior results.\\
+
+\textbf{Example}: To determine which of two cancer therapies is more effective at suppressing cancer growth., Therapy A or Therapy B. 
+
+\begin{enumerate}
+    \item \textbf{Hypothesis}: We hypothesize that Therapy B is more effective than Therapy A in reducing tumor size. Specifically:
+    \vspace{-2pt}
+    \begin{itemize}
+    \vspace{-2pt}
+        \item \(\boxed{H_0: \mu_A = \mu_B} \) (No difference in effectiveness)
+        \vspace{-2pt}
+        \item \( \boxed{ H_1: \mu_A  < \mu_B}\) (Therapy B is more effective than Therapy A)
+        \vspace{-2pt}
+    \end{itemize}
+    
+    \item \textbf{Create Variations}:
+    \vspace{-2pt}
+    \begin{itemize}
+    \vspace{-2pt}
+        \item Group A (\textbf{Control}): Patients receive Therapy A (the standard treatment).
+        \vspace{-2pt}
+        \item Group B (\textbf{Variation}): Patients receive Therapy B (the new or experimental treatment).
+        \vspace{-2pt}
+    \end{itemize}
+
+    \item \textbf{Random Assignment}:
+    Patients are randomly assigned to one of the two groups:
+    \vspace{-2pt}
+    \begin{itemize}
+    \vspace{-2pt}
+        \item \textbf{Group A}: Patients receive Therapy A.
+        \vspace{-2pt}
+        \item \textbf{Group B}: Patients receive Therapy B.
+        \vspace{-2pt}
+    \end{itemize}
+
+
+    \item \textbf{Data Collection}: Data is collected over a defined period. The key metric is the reduction in tumor size in each group.
+
+    \item \textbf{Statistical Analysis}: We conduct a statistical test, such as a $t$-test, to compare the average tumor size reduction between the two groups. If the mean reduction in Group B is significantly greater than in Group A, Therapy B is deemed more effective.
+    
+    \item \textbf{Conclusion}: If the analysis shows that: \(\boxed{p < \alpha} \quad \text{(e.g., } \alpha = 0.05 \text{)}\), 
+we reject the null hypothesis and conclude that Therapy B is more effective in suppressing cancer growth.
+
+\end{enumerate}
+
+
+
+
+
+
+
+
+
 \textbf{Ex}: Testing two web ads to determine which generates more conversions \\
 
 \vspace{3pt}
@@ -1535,89 +2007,72 @@ $\bullet$ \textbf{Effect Size:} Let's say we divide the penguins into two groups
 \textbf{\textcolor{blue}{Note:}} Effect size and estimates are \textbf{usually} more important than hypothesis tests.
 
 
-\vspace{5pt}
 
-
-\subsubsection{Test Statistics} {\color{teal}\hrule height 0.5pt} \smallskip
-
-
-$\bullet$ \textbf{z-Test}: Generally, z-Test is used when the \textbf{sample size} $n$ is \textbf{large} $n \geq 30$ (to invoke the CLT) and when the population \textbf{variance} (or standard deviation) is \textbf{known}.\\
-
-$\rightarrow$ \textbf{One-Sample} z-Test: compare a \textbf{sample mean} $\bar{x}$ with the \textbf{population mean} $\mu$
-\vspace{-5pt}
-\[\boxed{z = \frac{\bar{x} - \mu_{0}}{\frac{\sigma}{\sqrt{n}}} \sim N(0,1)} \]
-
-$\rightarrow$ \textbf{Two-Sample} z-Test: compare the \textbf{mean} of two samples
-\vspace{-5pt}
-\[\boxed{z = \frac{\left(\bar{x_{1}} - \bar{x_{2}} \right) - \left( \mu_{1} - \mu_{2} \right)}{\sqrt{\frac{\sigma^{2}_{1}}{n_{1}} + \frac{\sigma^{2}_{2}}{n_{2}}}}}\]
-
-
-\hspace{5pt} $\rightarrow$ \textbf{z-score:} gives you an idea of how far from the mean a data point is. \textbf{z-score will tell you how many standard errors there are between the sample mean and the population mean.}  A z-score of zero tells you the values is exactly average while a score of +3 tells you that the value is much higher than average. \\
-
-
-
-\vspace{3pt}
-$\bullet$ \textbf{Student's t-Distribution}: The \textit{t-distribution} is a normally shaped distribution, except that it is a bit thicker and longer on the tails. \\
-
-$\bullet$ \textbf{t-Test}: used when the \textbf{sample size} $n$ is \textbf{small} $n<30$ and when the population \textbf{variance} (or standard deviation) is \textbf{unknown}. It uses sample variance $s^{2}$ in place of population variance $\sigma^{2}$.
-
-
-\begin{enumerate}
-    \item \textbf{One-sample} \textit{t-test} tests whether a single mean is different from zero (or another fixed value $\mu_{0}$). \(\boxed{H_{0}: \mu = 0} \)
+\subsubsection{Dependent Samples vs. Independent Samples} {\color{teal}\hrule height 0.5pt} \smallskip
+\textbf{Dependent Samples}
+\begin{itemize}
     \vspace{-3pt}
-    \[\boxed{t = \frac{\bar{x} - \mu_{0}}{\frac{s}{\sqrt{n}}}  \sim t_{n-1}}\]
-    \item \textbf{Two-sample} \textit{t-test} that tests whether the means of \textbf{two independent samples} are the same. \(\boxed{H_{0}: \mu_{1} = \mu_{2}} \)
-     \vspace{-3pt}
-    \[\boxed{t = \frac{\left(\bar{x_{1}} - \bar{x_{2}} \right) - \left( \mu_{1} - \mu_{2} \right)}{\sqrt{\frac{s^{2}_{1}}{n_{1}} + \frac{s^{2}_{2}}{n_{2}}}}} \]
+    \item 1 Sample can be used to Determine other Results
+    \vspace{-3pt}
+    \item Cause \& Effect
+    \vspace{-3pt}
+    \item Pairs of Results
+    \vspace{-3pt}
+    \item What is Probability a Die Roll is Odd
+    \vspace{-3pt}
+    \item What are Weekly Results of Weight Lifting at End of Week
+    \vspace{-3pt}
+\end{itemize}
 
-    \item \textbf{Paired} \textit{t-test}  that tests, for a \textbf{same sample} of paired observations (within-subjects experiment), whether the mean difference between observations for each sample is zero. 
-    \(\boxed{H_{0}: E[{x_{i1} - x_{i2}}] = 0} \) \; $\bullet$ $x_{i*} = x_{i1} - x_{i2}$ $\rightarrow \boxed{H_{0}: \mu_{*} = 0}$
-\end{enumerate}
-
-
-$\rightarrow$ Use a \textbf{two-sample t-test} to compute \(\boxed{p = P(|\bar{X}_{G} - \bar{X}_{C}| \text{ this big }| H_{0})} \), if $p$ low (often $p < 0.05$), \textbf{reject the null} (there is a difference).
-
-
-\vspace{2pt}
-$\bullet$ \textbf{Ch-Square Distribution}:  measure differences between categorical variables, using $\boxed{\chi^2$ = $\sum \frac{\text{observed} - \text{expected}}{\text{expected}}}$ to test:
-\begin{itemize}[label={--},leftmargin=4mm]
-    \itemsep -.4mm
-    \item Goodness of fit - if samples of one categorical variable match the population category expectations
-    \item Independence -  if being in one category is independent of another, based off two categories
-    \item Homogeneity - if different subgroups come from the same population, based off a single category
+\textbf{Independent Samples}
+\begin{itemize}
+    \vspace{-3pt}
+    \item Samples have No Relation to Others
+    \vspace{-3pt}
+    \item 10 Random Blood Samples at Lab A \& 10 Random Samples at Lab B
+    \vspace{-3pt}
+    \item 1 Random Group gets Drug \& Other Gets a Placebo
+    \vspace{-3pt}
 \end{itemize}
 
 
 
 
 
+\subsubsection{Hypothesis Erros} {\color{teal}\hrule height 0.5pt} \smallskip
+\textbf{Type I error:} The null hypothesis $H_{0}$ is \textbf{rejected} when it is \textbf{true}. \\
+
+\textbf{Type II error:} The null hypothesis $H_{0}$ is \textbf{not rejected} when it is \textbf{false}.
+
+$\rightarrow$ \textbf{False negative} (\textbf{Type I error}) — incorrectly decide \textbf{no} \\
+$\rightarrow$ \textbf{False positive} (\textbf{Type II error}) — incorrectly decide \textbf{yes} \\
+
+
+\begin{center}
+    \begin{minipage}{0.70\linewidth}
+        \includegraphics[width=\textwidth]{figures/Confusion_Matrix_1.PNG}
+    \end{minipage}
+\end{center}
+
+\vspace{3pt}
+\textbf{Ex:} We assume the null hypothesis $H_{0}$  is true. \\
+$\rightarrow$ $H_{0}$: Person is not guilty  \\
+$\rightarrow$ $H_{1}$: Person is guilty  \\
+
+
+\begin{center}
+    \begin{minipage}{\linewidth}
+        \includegraphics[width=\textwidth]{figures/Confusion_Matrix_2.PNG}
+    \end{minipage}
+\end{center}
 
 
 
 
-\vspace{2pt}
-$\bullet$ \textbf{MLE} and \textbf{MAP} : 
-Any probability distribution has parameters, so fitting parameters is an extremely crucial part of data analysis. There are two general methods for doing so. In \textbf{maximum likelihood estimation} (MLE), the goal is to estimate the most likely parameters given a likelihood function: 
-\vspace{-3pt}
-\[\boxed{\theta_{\text{MLE}} = \text{arg max} \hspace{2pt} L(\theta)}, \hspace{10pt} \text{where} \hspace{5pt} L(\theta) = f_{n}\left(x_{1}, \ldots x_{n} | \theta \right) \]
-
-Since the values of $X$ are assumed to be i.i.d., then the likelihood function becomes the following:
-\vspace{-3pt}
-\[\boxed{L\left(\theta \right) = \prod^{n}_{i=1} f\left(x_{i}|\theta \right)} \]
-
-The natural log of $L(\theta)$ is then taken prior to calculating the maximum; since log is a monotonically increasing function, maximizing the \textbf{log-likelihood} log $L(\theta)$ is equivalent to maximizing the likelihood:
-\vspace{-3pt}
-\[\boxed{\text{log} \hspace{3pt} L(\theta) = \sum^{n}_{i=1} \text{log} \hspace{2pt} f\left(x_{i}|\theta \right)}\]
-
-Another way of fitting parameters is through \textbf{maximum a posterior} estimation (MAP), which assumes a "prior distribution":
-\vspace{-3pt}
-\[\boxed{\theta_{\text{MAP}} = \text{arg max} \hspace{2pt} g(\theta) \hspace{1pt} f\left(x_{1} \ldots x_{n} | \theta \right)} \]
-where the similar \textbf{log-likelihood} is again employed, and $g(\theta)$ is a density function of $\theta$.
+% \vspace*{\fill}
 
 
-\vspace*{\fill}
 
-% \columnbreak
 
 
 
@@ -1804,7 +2259,7 @@ where the similar \textbf{log-likelihood} is again employed, and $g(\theta)$ is 
 
 
 
-\vspace*{\fill}
+% \vspace*{\fill}
 
 
 % \pagebreak
@@ -1814,9 +2269,9 @@ where the similar \textbf{log-likelihood} is again employed, and $g(\theta)$ is 
 
 
 
-\begin{center}
-    Last Updated \today
-\end{center}
+% \begin{center}
+%     Last Updated \today
+% \end{center}
 
 
 % %%%%%%%%%%%%%%%%%%%%%% \section{References} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
